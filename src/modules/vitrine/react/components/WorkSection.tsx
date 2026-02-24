@@ -1,6 +1,7 @@
 import ioriFlashcardsIcon from "@root/assets/images/iori-flashcards-icon.png";
 import findMyselfIcon from "@root/assets/images/findmyself-icon.png";
 import missionDuJourIcon from "@root/assets/images/mission-du-jour-icon.png";
+import annaSignLanguageIcon from "@root/assets/images/anna-sign-language-icon.png";
 
 type App = {
   name: string;
@@ -12,6 +13,24 @@ type App = {
 };
 
 const apps: App[] = [
+  {
+    name: "Anna Sign Language",
+    description:
+      "A Duolingo-like educational app for learning sign language with Anna, a friendly mascot guiding users through interactive lessons. Designed to make sign language learning accessible and engaging for everyone.",
+    stats: "20,000+ downloads",
+    platforms: ["iOS", "Android"],
+    icon: annaSignLanguageIcon,
+    links: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/fr/app/anna-langue-des-signes/id6758141347",
+      },
+      {
+        label: "Google Play",
+        url: "https://play.google.com/store/apps/details?id=com.annasignlanguage.app",
+      },
+    ],
+  },
   {
     name: "Iori Flashcards",
     description:

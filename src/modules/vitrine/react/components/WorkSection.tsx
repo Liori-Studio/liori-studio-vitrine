@@ -35,7 +35,7 @@ const apps: App[] = [
     name: "Iori Flashcards",
     description:
       "An intelligent flashcard language learning app with 80+ languages and dialects available. Approved by teachers, it helps learners memorize more effectively using proven educational methods.",
-    stats: "500,000+ downloads",
+    stats: "700,000+ downloads",
     platforms: ["iOS", "Android"],
     icon: ioriFlashcardsIcon,
     links: [

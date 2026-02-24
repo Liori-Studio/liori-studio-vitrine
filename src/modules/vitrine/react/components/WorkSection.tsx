@@ -9,17 +9,45 @@ type App = {
   stats: string;
   platforms: string[];
   icon: string;
+  releaseDate: Date;
   links?: { label: string; url: string }[];
+};
+
+const getRelativeTime = (date: Date): string => {
+  const now = new Date();
+  const diffMs = now.getTime() - date.getTime();
+  const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  if (diffDays < 1) return "today";
+  if (diffDays === 1) return "yesterday";
+  if (diffDays < 7) return `${diffDays} days ago`;
+  if (diffDays < 30) {
+    const weeks = Math.floor(diffDays / 7);
+    return weeks === 1 ? "1 week ago" : `${weeks} weeks ago`;
+  }
+  if (diffDays < 365) {
+    const months = Math.floor(diffDays / 30);
+    return months === 1 ? "1 month ago" : `${months} months ago`;
+  }
+  const years = Math.floor(diffDays / 365);
+  const remainingMonths = Math.floor((diffDays % 365) / 30);
+  if (remainingMonths === 0) {
+    return years === 1 ? "1 year ago" : `${years} years ago`;
+  }
+  return years === 1
+    ? `over 1 year ago`
+    : `over ${years} years ago`;
 };
 
 const apps: App[] = [
   {
     name: "Anna Sign Language",
     description:
-      "A Duolingo-like educational app for learning sign language with Anna, a friendly mascot guiding users through interactive lessons. Designed to make sign language learning accessible and engaging for everyone.",
+      "A Duolingo-like educational app for learning sign language (ASL & LSF) with Anna, a friendly mascot guiding users through interactive lessons. Designed to make sign language learning accessible and engaging for everyone.",
     stats: "20,000+ downloads",
     platforms: ["iOS", "Android"],
     icon: annaSignLanguageIcon,
+    releaseDate: new Date(2026, 1, 18),
     links: [
       {
         label: "App Store",
@@ -38,6 +66,7 @@ const apps: App[] = [
     stats: "700,000+ downloads",
     platforms: ["iOS", "Android"],
     icon: ioriFlashcardsIcon,
+    releaseDate: new Date(2025, 8, 7),
     links: [
       {
         label: "App Store",
@@ -54,22 +83,18 @@ const apps: App[] = [
     description:
       "A facial recognition-based app that helps users find where their photos appear publicly on the internet. Built with a focus on transparency and user control.",
     stats: "800,000+ downloads",
-    platforms: ["Android", "formerly iOS"],
+    platforms: ["formerly iOS", "formerly Android"],
     icon: findMyselfIcon,
-    links: [
-      {
-        label: "Google Play",
-        url: "https://play.google.com/store/apps/details?id=com.findmyself.app&hl=en",
-      },
-    ],
+    releaseDate: new Date(2024, 9, 23),
   },
   {
-    name: "Mission du Jour",
+    name: "Today's Mission",
     description:
       "A daily challenge-based mobile app where users compete by posting short videos on TikTok. Each day, users receive a challenge; the participant whose video gets the most views wins a cash reward.",
     stats: "400,000+ downloads",
     platforms: ["iOS", "Android"],
     icon: missionDuJourIcon,
+    releaseDate: new Date(2023, 6, 16),
     links: [
       {
         label: "App Store",
@@ -107,10 +132,13 @@ export const WorkSection = () => {
                   <p className="mt-4 text-neutral-500 leading-relaxed max-w-xl">
                     {app.description}
                   </p>
-                  <div className="mt-6 flex flex-wrap items-center gap-6 text-sm">
+                  <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
                     <span className="text-neutral-900">{app.stats}</span>
                     <span className="text-neutral-300">
                       {app.platforms.join(" / ")}
+                    </span>
+                    <span className="text-neutral-400">
+                      Launched {getRelativeTime(app.releaseDate)}
                     </span>
                   </div>
                   {app.links && app.links.length > 0 && (

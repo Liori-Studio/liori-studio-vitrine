@@ -2,7 +2,7 @@ export const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center px-6">
       <div className="max-w-2xl text-center animate-fade-in">
-        <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl tracking-tight leading-tight text-balance">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-balance">
           Independent mobile app studio
         </h1>
         <p className="mt-8 text-lg md:text-xl text-neutral-500 leading-relaxed max-w-xl mx-auto">

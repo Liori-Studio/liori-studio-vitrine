@@ -10,7 +10,7 @@ export const AboutSection = () => {
   return (
     <section id="about" className="py-32 px-6 bg-neutral-50">
       <div className="max-w-4xl mx-auto">
-        <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-16">
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-16">
           About
         </h2>
         <div className="grid md:grid-cols-2 gap-16">

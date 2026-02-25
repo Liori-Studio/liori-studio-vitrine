@@ -2,7 +2,7 @@ export const ContactSection = () => {
   return (
     <section id="contact" className="py-32 px-6">
       <div className="max-w-4xl mx-auto text-center">
-        <h2 className="font-serif text-3xl md:text-4xl tracking-tight mb-8">
+        <h2 className="text-3xl md:text-4xl font-semibold tracking-tight mb-8">
           Get in touch
         </h2>
         <p className="text-neutral-500 mb-12 max-w-md mx-auto">

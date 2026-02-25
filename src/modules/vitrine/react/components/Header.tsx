@@ -1,12 +1,17 @@
+import { Logo } from "@root/modules/shared/react/logo/Logo";
+
 export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-sm">
       <nav className="max-w-4xl mx-auto px-6 py-6 flex justify-between items-center">
         <a
           href="#"
-          className="font-serif text-xl tracking-tight hover:opacity-60 transition-opacity"
+          className="flex items-center gap-2.5 hover:opacity-60 transition-opacity"
         >
-          Liori Studio
+          <Logo size={28} />
+          <span className="text-xl font-semibold tracking-tight">
+            Liori Studio
+          </span>
         </a>
         <ul className="flex gap-8 text-sm tracking-wide">
           <li>

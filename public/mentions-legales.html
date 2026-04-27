@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - Liori Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <header class="mb-12">
+            <h1 class="text-4xl font-bold mb-4">Mentions Légales</h1>
+            <a href="/" class="text-blue-600 hover:underline">← Retour à l'accueil</a>
+        </header>
+
+        <main class="prose prose-lg max-w-none">
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">1. Informations légales</h2>
+                <p class="mb-4">
+                    <strong>Nom du site :</strong> Liori Studio<br>
+                    <strong>Raison sociale :</strong> Mission du Jour SAS<br>
+                    <strong>Directeur de publication :</strong> Lior Levy
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">2. Hébergement</h2>
+                <p class="mb-4">
+                    Le site Liori Studio est hébergé par :<br>
+                    Netlify, Inc.<br>
+                    44 Montgomery Street, Suite 300<br>
+                    San Francisco, California 94104<br>
+                    États-Unis
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">3. Propriété intellectuelle</h2>
+                <p class="mb-4">
+                    L'ensemble du contenu présent sur le site Liori Studio (textes, images, graphismes, logo, icônes, etc.) est la propriété exclusive de Mission du Jour SAS, à l'exception des marques, logos ou contenus appartenant à d'autres sociétés partenaires ou auteurs.
+                </p>
+                <p class="mb-4">
+                    Toute reproduction, distribution, modification, adaptation, retransmission ou publication, même partielle, de ces différents éléments est strictement interdite sans l'accord exprès par écrit de Mission du Jour SAS.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">4. Protection des données personnelles</h2>
+                <p class="mb-4">
+                    Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification et de suppression des données vous concernant.
+                </p>
+                <p class="mb-4">
+                    Pour exercer ces droits, vous pouvez nous contacter via le formulaire de contact présent sur le site.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">5. Cookies</h2>
+                <p class="mb-4">
+                    Le site Liori Studio peut être amené à vous demander l'acceptation de cookies pour des besoins de statistiques et d'affichage. Un cookie est une information déposée sur votre disque dur par le serveur du site que vous visitez.
+                </p>
+                <p class="mb-4">
+                    Vous pouvez désactiver l'utilisation de cookies en sélectionnant les paramètres appropriés de votre navigateur.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">6. Responsabilité</h2>
+                <p class="mb-4">
+                    Les informations contenues sur ce site sont aussi précises que possible et le site est périodiquement remis à jour, mais peut toutefois contenir des inexactitudes, des omissions ou des lacunes.
+                </p>
+                <p class="mb-4">
+                    Mission du Jour SAS ne pourra être tenue responsable des dommages directs et indirects causés au matériel de l'utilisateur, lors de l'accès au site.
+                </p>
+            </section>
+
+            <section class="mb-8">
+                <h2 class="text-2xl font-semibold mb-4">7. Droit applicable</h2>
+                <p class="mb-4">
+                    Le présent site et les présentes mentions légales sont régis par le droit français. En cas de litige, les tribunaux français seront seuls compétents.
+                </p>
+            </section>
+        </main>
+
+        <footer class="mt-12 pt-8 border-t border-neutral-200">
+            <p class="text-sm text-neutral-500">
+                © <span id="year"></span> Liori Studio - Mission du Jour SAS. Tous droits réservés.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -16,7 +16,15 @@ export const Footer = () => {
               </p>
             </div>
           </div>
-          <p className="text-sm text-neutral-400">{currentYear}</p>
+          <div className="flex flex-col md:flex-row items-start md:items-center gap-4">
+            <a
+              href="/mentions-legales.html"
+              className="text-sm text-neutral-400 hover:text-neutral-600 transition-colors"
+            >
+              Mentions légales
+            </a>
+            <p className="text-sm text-neutral-400">{currentYear}</p>
+          </div>
         </div>
       </div>
     </footer>

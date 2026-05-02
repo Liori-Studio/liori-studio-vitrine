@@ -2,15 +2,22 @@ import ioriFlashcardsIcon from "@root/assets/images/iori-flashcards-icon.png";
 import findMyselfIcon from "@root/assets/images/findmyself-icon.png";
 import missionDuJourIcon from "@root/assets/images/mission-du-jour-icon.png";
 import annaSignLanguageIcon from "@root/assets/images/anna-sign-language-icon.png";
+import bibleGoIcon from "@root/assets/images/biblego-icon.png";
 
 type App = {
   name: string;
   description: string;
-  stats: string;
+  stats?: string;
   platforms: string[];
   icon: string;
   releaseDate: Date;
   links?: { label: string; url: string }[];
+  comingSoon?: string;
+};
+
+const isJustLaunched = (date: Date): boolean => {
+  const diffDays = (Date.now() - date.getTime()) / (1000 * 60 * 60 * 24);
+  return diffDays < 30;
 };
 
 const getRelativeTime = (date: Date): string => {
@@ -41,10 +48,25 @@ const getRelativeTime = (date: Date): string => {
 
 const apps: App[] = [
   {
+    name: "BibleGo",
+    description:
+      "An interactive Bible learning app inspired by modern education tools. Structured lessons and quizzes guide users step by step through the Old and New Testament.",
+    platforms: ["iOS"],
+    icon: bibleGoIcon,
+    releaseDate: new Date(2026, 4, 2),
+    links: [
+      {
+        label: "App Store",
+        url: "https://apps.apple.com/fr/app/biblego-%C3%A9tude-de-la-bible/id6764254692",
+      },
+    ],
+    comingSoon: "Soon on Android",
+  },
+  {
     name: "Anna Sign Language",
     description:
       "A Duolingo-like educational app for learning sign language (ASL & LSF) with Anna, a friendly mascot guiding users through interactive lessons. Designed to make sign language learning accessible and engaging for everyone.",
-    stats: "20,000+ downloads",
+    stats: "200,000+ downloads",
     platforms: ["iOS", "Android"],
     icon: annaSignLanguageIcon,
     releaseDate: new Date(2026, 1, 18),
@@ -63,7 +85,7 @@ const apps: App[] = [
     name: "Iori Flashcards",
     description:
       "An intelligent flashcard language learning app with 80+ languages and dialects available. Approved by teachers, it helps learners memorize more effectively using proven educational methods.",
-    stats: "700,000+ downloads",
+    stats: "1,000,000+ downloads",
     platforms: ["iOS", "Android"],
     icon: ioriFlashcardsIcon,
     releaseDate: new Date(2025, 8, 7),
@@ -133,27 +155,46 @@ export const WorkSection = () => {
                     {app.description}
                   </p>
                   <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
-                    <span className="text-neutral-900">{app.stats}</span>
-                    <span className="text-neutral-300">
-                      {app.platforms.join(" / ")}
-                    </span>
-                    <span className="text-neutral-400">
-                      Launched {getRelativeTime(app.releaseDate)}
-                    </span>
+                    {isJustLaunched(app.releaseDate) ? (
+                      <span className="inline-flex items-center gap-2 text-neutral-900">
+                        <span className="relative flex h-1.5 w-1.5">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75"></span>
+                          <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
+                        </span>
+                        Just launched
+                      </span>
+                    ) : (
+                      <>
+                        {app.stats && (
+                          <span className="text-neutral-900">{app.stats}</span>
+                        )}
+                        <span className="text-neutral-300">
+                          {app.platforms.join(" / ")}
+                        </span>
+                        <span className="text-neutral-400">
+                          Launched {getRelativeTime(app.releaseDate)}
+                        </span>
+                      </>
+                    )}
                   </div>
-                  {app.links && app.links.length > 0 && (
-                    <div className="mt-4 flex gap-6">
-                      {app.links.map((link) => (
+                  {((app.links && app.links.length > 0) || app.comingSoon) && (
+                    <div className="mt-4 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+                      {app.links?.map((link) => (
                         <a
                           key={link.label}
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-neutral-400 hover:text-neutral-900 transition-colors border-b border-transparent hover:border-neutral-900"
+                          className="text-neutral-400 hover:text-neutral-900 transition-colors border-b border-transparent hover:border-neutral-900"
                         >
                           {link.label}
                         </a>
                       ))}
+                      {app.comingSoon && (
+                        <span className="text-neutral-300">
+                          {app.comingSoon}
+                        </span>
+                      )}
                     </div>
                   )}
                 </div>
